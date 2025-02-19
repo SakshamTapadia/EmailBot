@@ -1,8 +1,0 @@
-Flask
-Flask-Mail
-pandas
-apscheduler
-werkzeug
-pytz
-concurrent.futures
-
