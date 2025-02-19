@@ -4,5 +4,4 @@ pandas
 apscheduler
 werkzeug
 pytz
-concurrent.futures
 
