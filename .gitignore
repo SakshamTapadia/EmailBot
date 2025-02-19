@@ -1,0 +1,31 @@
+# Environment Variables
+.env
+
+# Python Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+
+# Data files
+*.csv
+*.xlsx
+
+# IDE Files
+.vscode/
+.idea/
+
+# Deployment
+.DS_Store
+*.swp
+
