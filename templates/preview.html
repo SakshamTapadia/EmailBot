@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="preview-section">
+    <h2 class="mb-4">Email Preview</h2>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <strong>Subject:</strong> {{ subject }}
+        </div>
+        <div class="card-body">
+            {{ content|safe }}
+
+            {% if attachments %}
+            <hr>
+            <div class="mt-3">
+                <strong>Attachments:</strong>
+                <ul class="list-unstyled">
+                    {% for attachment in attachments %}
+                    <li><i class="fas fa-paperclip"></i> {{ attachment }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="alert alert-info">
+        <i class="fas fa-users"></i> This email will be sent to {{ recipient_count }} recipients
+    </div>
+
+    <form action="{{ url_for('send_emails') }}" method="post">
+        <input type="hidden" name="subject" value="{{ subject }}">
+        <input type="hidden" name="content" value="{{ content }}">
+        {% if attachments %}
+            {% for attachment in attachments %}
+            <input type="hidden" name="attachments" value="{{ attachment }}">
+            {% endfor %}
+        {% endif %}
+
+        <div class="d-flex gap-2">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Edit
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Send Now
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
